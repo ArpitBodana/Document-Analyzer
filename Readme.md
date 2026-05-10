@@ -19,13 +19,12 @@ An AI-powered document processing system built with Spring Boot that supports do
 
 ## 🏗️ Architecture Overview
 
-graph TD
-Client -->|Upload /api/documents/upload| Ingestion[DocumentIngestionService]
-Ingestion --> PDF[PDF Text Extraction]
-Ingestion --> Chunk[ChunkingService]
-Ingestion --> Classify[DocumentClassifierService - LLM]
-Ingestion --> Embed[EmbeddingService]
-Ingestion --> DB[(PostgreSQL + pgvector)]
+    Client -->|Upload /api/documents/upload| Ingestion[DocumentIngestionService]
+    Ingestion --> PDF[PDF Text Extraction]
+    Ingestion --> Chunk[ChunkingService]
+    Ingestion --> Classify[DocumentClassifierService - LLM]
+    Ingestion --> Embed[EmbeddingService]
+    Ingestion --> DB[(PostgreSQL + pgvector)]
 
     Client -->|Query /api/ai/query| Retrieval[RetrievalService - Vector Search]
     Retrieval --> Summary[DocumentSummaryService]
